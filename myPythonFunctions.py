@@ -51,28 +51,6 @@ def generateQuestion() :
         questionString += f"{operandList[i]} {operatorList[i]} "
 
     questionString += str(operandList[-1])
-
-    result = eval(questionString)
-    print(result)
-
     questionString = questionString.replace("**","^")
-
-    print(questionString)
-
-    userInput = input("Votre reponse : ")
-
-    while True :
-        try :
-            userInput = int(userInput)
-            break
-        except:
-            print("Choisi un nombre!!!")
-            userInput = input("Votre reponse : ")
-
-    if(userInput == result) : 
-        print("Bravo!!!")
-        return 1
-    else:
-        print("mauvaise réponse!!!")
-        print(f"{questionString} = {result}")
-        return 0
+    print(eval(questionString))
+    return questionString
