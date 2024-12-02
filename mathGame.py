@@ -1,7 +1,6 @@
 import myPythonFunctions
 from PyQt5.QtWidgets import QApplication, QMainWindow, QLineEdit, QPushButton, QVBoxLayout, QWidget, QMessageBox
 from PyQt5 import uic
-#Programme principal
 
 def main() :
     name = window.nameInput.text()
@@ -27,11 +26,13 @@ def main() :
             myPythonFunctions.updateUserPoints(newUser,userName,userScore)
             window.valArea.setText("Good job!!!")
             window.resArea.setText("")
+            window.submit.setEnabled(False)
         else:
             window.valArea.setStyleSheet("color: red;font: 20pt;")
             window.resArea.setStyleSheet("color: red;font: 20pt;")
             window.valArea.setText("Wrong!!!")
             window.resArea.setText("Correct anwser : "+str(eval(window.equaInput.text())))
+            window.submit.setEnabled(False)
         
 
         
@@ -55,6 +56,7 @@ def playAgain() :
     window.valArea.setText("")
     window.anwserInput.setText("")
     window.equaInput.setText(myPythonFunctions.generateQuestion())
+    window.submit.setEnabled(True)
     window.playAgain.hide()
     window.quit.hide()
 

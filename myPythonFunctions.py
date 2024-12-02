@@ -23,7 +23,8 @@ def updateUserPoints(newUser:  bool, userName, score) :
         f1 = open("userScores.tmp","w")
         f2 = open("userScores.txt","r")
         for x in f2 :
-            if userName in x :
+            name, current_score = x.strip().split(", ")
+            if name == userName :
                 f1.write(f"{userName}, {score}\n")
             else :
                 f1.write(x)
